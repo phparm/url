@@ -23,7 +23,7 @@
     },
     "require": {
         "php": "^8.0",
-        "phparm/entity": "^1.0.1",
+        "phparm/entity": "^1.1",
         "illuminate/contracts": "^8.83"
     },
     "autoload": {
