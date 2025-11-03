@@ -22,9 +22,9 @@
         "docs": "https://phparm.github.io/phparm"
     },
     "require": {
-        "php": "^8.0",
-        "phparm/entity": "^1.1",
-        "illuminate/contracts": "^8.83"
+        "php": "^8.0.2",
+        "phparm/entity": "^1.1.1",
+        "illuminate/contracts": "^9.52"
     },
     "autoload": {
         "psr-4": {
