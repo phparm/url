@@ -7,12 +7,15 @@ namespace Phparm\Url\Option;
 use Phparm\Entity\Option;
 
 /**
+ * ========== property_hook_method ==========
  * @method string getNumericPrefix()
- * @method self setNumericPrefix(string $numericPrefix)
  * @method string|null getArgSeparator()
- * @method self setArgSeparator(string|null $argSeparator)
  * @method int getEncodingType()
- * @method self setEncodingType(int $encodingType)
+ *
+ * @method $this setNumericPrefix(string $numericPrefix)
+ * @method $this setArgSeparator(string|null $argSeparator)
+ * @method $this setEncodingType(int $encodingType)
+ * ========== property_hook_method ==========
  */
 class QueryOption extends Option
 {

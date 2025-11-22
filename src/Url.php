@@ -6,7 +6,6 @@ namespace Phparm\Url;
 
 use Phparm\Entity\Attribute;
 use Phparm\Entity\Option;
-use Illuminate\Contracts\Support\Arrayable;
 use InvalidArgumentException;
 
 use function \parse_url;
@@ -15,8 +14,25 @@ use function \parse_url;
  * @template TKey of array-key
  * @template TValue
  *
+ * ========== property_hook_method ==========
+ * @method string getScheme()
+ * @method string getHost()
+ * @method int getPort()
+ * @method string getUser()
+ * @method string getPass()
+ * @method string getPath()
  * @method Query|null getQuery()
- * @method self setQuery(Query|null $query)
+ * @method string getFragment()
+ *
+ * @method $this setScheme(string $scheme)
+ * @method $this setHost(string $host)
+ * @method $this setPort(int $port)
+ * @method $this setUser(string $user)
+ * @method $this setPass(string $pass)
+ * @method $this setPath(string $path)
+ * @method $this setQuery(Query|null $query)
+ * @method $this setFragment(string $fragment)
+ * ========== property_hook_method ==========
  */
 class Url extends Attribute
 {
@@ -30,7 +46,7 @@ class Url extends Attribute
     public string $fragment;
 
     /**
-     * @param Arrayable<TKey,TValue>|string $attributes
+     * @param array|string $attributes
      * @param Option|null $option
      */
     public function __construct($attributes, ?Option $option = null)
@@ -64,7 +80,7 @@ class Url extends Attribute
     }
 
     /**
-     * @param Arrayable<TKey,TValue>|string $attributes
+     * @param array|string $attributes
      * @param Option|null $option
      * @return array
      */
@@ -110,7 +126,7 @@ class Url extends Attribute
     public function parse(string $url): array
     {
         if (!str_starts_with($url, 'http')) {
-            throw new InvalidArgumentException('Invalid url');
+            throw new InvalidArgumentException(sprintf('Invalid url: "%s"', $url));
         }
         return parse_url($url) ?: [];
     }

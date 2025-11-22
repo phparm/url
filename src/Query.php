@@ -7,7 +7,6 @@ namespace Phparm\Url;
 use Phparm\Entity\Option;
 use Phparm\Entity\StringValue;
 use Phparm\Url\Option\QueryOption;
-use Illuminate\Contracts\Support\Arrayable;
 
 use function \http_build_query, \parse_str;
 
@@ -15,13 +14,16 @@ use function \http_build_query, \parse_str;
  * @template TKey of array-key
  * @template TValue
  *
+ * ========== property_hook_method ==========
  * @method string getValue()
- * @method self setValue(string $value)
+ *
+ * @method $this setValue(string $value)
+ * ========== property_hook_method ==========
  */
 class Query extends StringValue
 {
     /**
-     * @param Arrayable<TKey,TValue>|string $attributes
+     * @param array|string $attributes
      * @param QueryOption|null $option
      * @return array
      */
